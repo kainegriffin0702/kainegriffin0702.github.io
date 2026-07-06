@@ -11,9 +11,33 @@
       "countryCode": "US",
       "region": "GA"
     },
-    "profiles": []
+    "profiles": [
+      {
+        "network": "GitHub",
+        "username": "epcnes",
+        "url": "https://github.com/epcnes"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "kainegriffin",
+        "url": "https://linkedin.com/in/kainegriffin"
+      }
+    ]
   },
-  "work": [],
+  "work": [    
+    {
+      "name": "KCI",
+      "position": "Intern",
+      "startDate": "2021-09",
+      "endDate": "2022-04",
+      "summary": "Assisted hydraulic design projects and traffic study analysis.",
+      "highlights": [
+        "Performed calculations for hydraulic design projects",
+        "Analyzed traffic study reports using Microsoft Excel",
+        "Drew Volume Flow Diagrams"
+      ]
+    }
+  ],
   "education": [
     {
       "institution": "University of Georgia",
@@ -35,20 +59,110 @@
       ]
     }
   ],
-  "skills": [],
+  "skills": [
+    {
+      "name": "Programming Languages",
+      "keywords": [
+        "Python",
+        "Java",
+        "SQL",
+        "R",
+        "MATLAB"
+      ]
+    },
+    {
+      "name": "Libraries & Tools",
+      "keywords": [
+        "Gurobi Optimizer",
+        "NumPy",
+        "Pandas",
+        "Matplotlib",
+        "Jupyter"
+      ]
+    },
+    {
+      "name": "Software",
+      "keywords": [
+        "Microsoft Excel",
+        "Microsoft Word",
+        "Microsoft PowerPoint",
+        "AutoCAD",
+        "MicroStation"
+      ]
+    },
+    {
+      "name": "Modeling & Optimization",
+      "keywords": [
+        "Integer Linear Programming (ILP)",
+        "Operations Research Modeling",
+        "Pattern-Based Optimization",
+        "Ordinary Differential Equations (ODEs)",
+        "Numerical Methods"
+      ]
+    },
+    {
+      "name": "Core Competencies",
+      "keywords": [
+        "Problem Solving",
+        "Analytical Thinking",
+        "Data Analysis",
+        "Algorithm Design",
+        "Complexity Analysis",
+        "Performance Benchmarking"
+      ]
+    },
+    {
+      "name": "Professional Skills",
+      "keywords": [
+        "Communication",
+        "Leadership",
+        "Team Collaboration",
+        "Presenting",
+        "Customer Service"
+      ]
+    }
+  ],
   "languages": [],
-  "interests": [],
+  "interests": [
+    {
+      "name": "Mathematical Optimization",
+      "keywords": [
+        "Integer Programming",
+        "Combinatorial Optimization",
+        "Operations Research"
+      ]
+    },
+    {
+      "name": "Data Science",
+      "keywords": [
+        "Data Analysis",
+        "Numerical Methods",
+        "Data Visualization"
+      ]
+    }
+  ],
   "references": [],
   "publications": [],
   "presentations": [
     {
-      "name": "Talk 1 on Relevant Topic in Your Field",
-      "event": "UC San Francisco, Department of Testing",
-      "date": "2012-03-01",
-      "location": "San Francisco, CA, USA",
-      "description": ""
+      "name": "Talent Scheduling with Daily Capacity and Changeover Times: A Pattern Based Integer Linear Programming Approach",
+      "event": "Directed Reading Program with the Mathematics Department at the University of Georgia",
+      "date": "2026-04-22",
+      "location": "Athens, GA, USA",
+      "description": "Presented an ILP model for talent scheduling with daily capacity and changeover times, implemented in Python with Gurobi."
     }
   ],
   "teaching": [],
-  "portfolio": []
+  "portfolio": [
+    {
+      "name": "Talent Scheduling with Daily Capacity and Changeover Times",
+      "url": "/portfolio/talent-scheduling/",
+      "description": "Replicated an integer linear programming (ILP) model for a talent scheduling problem with daily capacity and changeover times. Implemented in Python with Gurobi and analyzed solution feasibility, constraint interactions, and scalability."
+    },
+    {
+      "name": "Simple Optimal Control of a Reparable System",
+      "url": "",
+      "description": "Modeled a two-state repair/failure system using ODEs and implemented a backward-Euler discretization with adjoint-based gradient descent in Python to optimize a non-negative control input."
+    }
+  ]
 }
