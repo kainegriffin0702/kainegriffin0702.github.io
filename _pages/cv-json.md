@@ -8,7 +8,7 @@ redirect_from:
 ---
 {% include base_path %}
 
-{% include cv-template.html %}
+{% include cv-template.html %}portfolioport
 
 <div class="cv-download-links">
   <a href="{{ base_path }}/files/cv.pdf" class="btn btn--primary">Download CV as PDF</a>
