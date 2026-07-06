@@ -11,12 +11,9 @@ main:
 
   - title: "Home"
     url: /
-
+    
   - title: "CV"
-    url: /cv/
+    url: /cv-json/
     
-  # - title: "CV"
-  #   url: /cv-json/
-    
-  - title: "Guide"
-    url: /markdown/
+  - title: "Projects"
+    url: /portfolio/
