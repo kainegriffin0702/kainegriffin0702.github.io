@@ -1,7 +1,7 @@
 ---
 layout: single
-title:  "Talent Scheduling with Daily Capacity and Changeover Times"
-subtitle: "A Pattern Based Integer Linear Programming Approach"
+title:  "Talent Scheduling with Daily Capacity and Changeover Times: A Pattern Based Integer Linear Programming Approach"
+author_profile: true
 categories: 
   - Jekyll
 permalink: /portfolio/talent-scheduling/ 
@@ -34,10 +34,10 @@ This project was done through a Directed Reading Program in the Mathematics Depa
 
 The original talent scheduling problem proposed by [T.C.E. Cheng, J.E. Diamond, and B.M.T. Lin](https://link.springer.com/article/10.1007/BF00940554) in 1993 aims to minimise the holding cost of actors who are shooting a movie. From this, there are 4 parameters:
 
-- $n$ : number of scenes
-- $m$ : number of actors
-- $c_1,\cdots, c_m$ : holding cost of each actor
-- $T$ : a binary matrix of which scenes need which actors
+- \(n\) : number of scenes
+- \(m\) : number of actors
+- \(c_1,\cdots, c_m\) : holding cost of each actor
+- \(T\) : a binary matrix of which scenes need which actors
 
 Note that this formulation runs on the assumption that each scene takes one day to shoot. When we do consider a daily working capacity and changeover times, we can consider the sequences of scenes that are feasible in a given day and the time it may take to change the set, do makeup, etc. Since a method of finding these possible sequences was not given in Yang, et al. (2026), we devised our own method.
 
@@ -45,13 +45,13 @@ Note that this formulation runs on the assumption that each scene takes one day 
 
 A feasible pattern is one in which the scenes and their changeover times can be totaled to be less than or equal to the daily working capacity. To find feasible scene patterns, we must first introduce some new parameters:
 
-- $l_1, \cdots, l_m$ : length of each scene
-- $S$ : asymmetric $m \times m$ matrix of changeover times from scene $i$ to scene $j$
-- $W$ : daily working capacity
-- $D$ : upper bound on the number of days needed to complete filming the scenes
-- $H$ : upper bound on the number of scenes in a working day
+- \(l_1, \cdots, l_m\) : length of each scene
+- \(S\) : asymmetric \(m \times m\) matrix of changeover times from scene \(i\) to scene \(j\)
+- \(W\) : daily working capacity
+- \(D\) : upper bound on the number of days needed to complete filming the scenes
+- \(H\) : upper bound on the number of scenes in a working day
 
-Since we have an upper bound on how many scenes can be filmed in a day, we restrict the feasible permutation length to no more than $H$. We then found permutations of $n$ of up to length $H$ whose durations and changeover times were less than or equal to $W$.
+Since we have an upper bound on how many scenes can be filmed in a day, we restrict the feasible permutation length to no more than \(H\). We then found permutations of \(n\) of up to length \(H\) whose durations and changeover times were less than or equal to \(W\).
 
 ```python
 from itertools import permutations
@@ -62,13 +62,13 @@ def finding_P(n, S, durations, W, H):
     for length in range(H):
         for perm in permutations(range(n), length+1):
             total = 0
-    
+  
             for scene in perm:
                 total += durations[scene]
-    
+  
             for i in range(len(perm)-1):
                 total += S[perm[i], perm[i+1]]
-    
+  
             if total <= W:
                 valid_perms.append(perm)
   
@@ -81,9 +81,9 @@ From this, we find the list of unique subsets of scenes which is called $\mathca
 
 Before defining constraints, we must introduce 3 binary decision variables.
 
-- $a_{k,j} = 1$ if scene $j$ is in scene subset $P_k$, $0$ otherwise
-- $x_{k,d} = 1$ if scene subset $P_k$ is assigned to day $d$, $0$ otherwise
-- $y_{i,d_1,d_2} = 1$ if actor $i$ is held from day $d_1$ to day $d_2$, $0$ otherwise
+- \(a_{k,j} = 1\) if scene \(j\) is in scene subset \(P_k\), \(0\) otherwise
+- \(x_{k,d} = 1\) if scene subset \(P_k\) is assigned to day \(d\), \(0\) otherwise
+- \(y_{i,d_1,d_2} = 1\) if actor \(i\) is held from day \(d_1\) to day \(d_2\), \(0\) otherwise
 
 With this in mind, we can define our first constraint which ensures that there is one feasible pattern assigned to day 1.
 
@@ -129,10 +129,10 @@ $$
 \min\quad \sum_{i=1}^{m} c_i \sum_{d_1=1}^{D} \sum_{d_2=d_1}^{D} (d_2 - d_1 + 1) y_{i,d_1,d_2}
 $$
 
-- $c_i$ : holding cost of actor $i$
-- $(d_2-d_1+1)y_{i,d_1,d_2}$ : the number of days actor $i$ is needed on set
+- \(c_i\) : holding cost of actor \(i\)
+- \((d_2-d_1+1)y_{i,d_1,d_2}\) : the number of days actor \(i\) is needed on set
 
-Note that $(d_2-d_1+1)y_{i,d_1,d_2}$ is dictated by $y_{i,d_1,d_2}$ and the cost will only be counted if the current $d_1, d_2$ is the actor's holding duration found within the constraints.
+Note that \((d_2-d_1+1)y_{i,d_1,d_2}\) is dictated by \(y_{i,d_1,d_2}\) and the cost will only be counted if the current \(d_1, d_2\) is the actor's holding duration found within the constraints.
 
 # Computational Study and Results
 
